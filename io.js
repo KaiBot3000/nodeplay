@@ -1,5 +1,5 @@
 // import module
-var fs =  require('fs');
+var fs =  require("fs");
 // get filepath
 var file = process.argv[2];
 // get buffer object from file
