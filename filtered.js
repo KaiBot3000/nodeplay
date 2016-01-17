@@ -13,20 +13,25 @@
 var fs = require("fs");
 var path = require("path");
 var directory = process.argv[2];
-var filter = process.argv[3];
-
-// console.log(directory, filter);
-
-// get list of files
-// for each file
-//  if it ends w/ filter
-//      print it
+var filter = "." + process.argv[3];
 
 function filterFiles(err, fileArray) {
     for (i=0; i<fileArray.length; i++) {
-        var filename = fileArray[i];
-        console.log(filename);
-    }
-}
+        if (path.extname(fileArray[i]) === filter) {
+            console.log(fileArray[i]);
+        };
+    };
+};
 
 fs.readdir(directory, filterFiles);
+
+// official solution
+// var fs = require('fs')  
+// var path = require('path')  
+
+// fs.readdir(process.argv[2], function (err, list) {  
+//   list.forEach(function (file) {  
+//     if (path.extname(file) === '.' + process.argv[3])  
+//       console.log(file)  
+//   })  
+// })
